@@ -31,7 +31,7 @@ public class StudentServiceTest {
 		System.out.println("testFindStudentById" + student);
 	}
 
-	@Test
+	/*@Test
 	public void testInsertStudent() {
 		Student student = new Student();
 		student.setStudId(3);
@@ -43,6 +43,33 @@ public class StudentServiceTest {
 		int result = studentService.insertStudent(student);
 		System.out.printf("testInsertStudent %s : result %d%n", student, result);
 		Assert.assertSame(1, result);
-	}
+	}*/
+	
+	/*@Test
+	public void testInsertStudentAutoIncrement() {
+		Student student = new Student();
+		student.setName("김태희");
+		student.setEmail("kth@gmail.com");
+		student.setPhone(new PhoneNumber("010-5782-7586"));
+		student.setDob(new Date());
 
+		int result = studentService.insertStudent(student);
+		System.out.printf("testInsertStudent %s : result %d%n", student, result);
+		Assert.assertSame(1, result);
+	}*/
+	
+	@Test
+	public void testUpdateStudent() {
+		Student student = new Student();
+		student.setStudId(1);
+		student.setName("Timothy");
+		student.setEmail("timothy6@gmail.com");
+		student.setPhone(new PhoneNumber("010-7596-4845"));
+		student.setDob(new Date());
+		
+		int result = studentService.updateStudent(student);
+		System.out.printf("testUpdateStudent %s : result %d%n", student, result);
+		Assert.assertSame(1, result);
+	}
+	
 }

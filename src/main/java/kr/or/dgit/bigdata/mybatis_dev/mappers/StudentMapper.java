@@ -6,4 +6,8 @@ public interface StudentMapper {
 	Student findStudentById(int id);
 
 	int insertStudent(Student student);
+
+	int insertStudentAutoIncrement(Student student);
+
+	int updateStudent(Student student);
 }

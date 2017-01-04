@@ -207,11 +207,11 @@ select * from course_enrollment;
  insert into students(name,email,phone,dob)
  values('강보미2','kbm2@asd.asd','010-111-1111','2016-12-28');
  
- set foreign_key_checks =1;
+ set foreign_key_checks = 1;
  
  update students set name='노창균', email='rcg@asd.asd', phone='010-789-7896',dob='1983-12-10' where stud_id='5';
  
- delete from students where stud_id=7;
+ delete from students where stud_id = 4;
  
  select stud_id, name, email,phone,dob from students;
  

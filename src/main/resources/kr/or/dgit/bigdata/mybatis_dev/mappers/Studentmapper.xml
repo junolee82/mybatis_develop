@@ -12,4 +12,14 @@
 		values(#{studId}, #{name}, #{email}, #{phone}, #{dob})
 	</insert>
 	
+	<insert id="insertStudentAutoIncrement" parameterType="Student" useGeneratedKeys="true" keyProperty="studId">
+		insert into students(name, email, phone, dob)
+		values(#{name}, #{email}, #{phone}, #{dob})
+	</insert>
+	
+	<update id="updateStudent" parameterType="Student">
+		update students set name=#{name}, email=#{email}, phone=#{phone}, dob=#{dob}
+		where stud_id=#{studId}
+	</update>
+	
 </mapper>
