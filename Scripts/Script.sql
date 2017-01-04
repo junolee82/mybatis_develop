@@ -1,156 +1,172 @@
--- ÌïôÏÇ¨Í¥ÄÎ¶¨
+-- ¡÷º“
+DROP TABLE IF EXISTS mybatis_develop.addresses RESTRICT;
+
+-- «–ª˝
+DROP TABLE IF EXISTS mybatis_develop.students RESTRICT;
+
+-- ∞≠ªÁ
+DROP TABLE IF EXISTS mybatis_develop.tutors RESTRICT;
+
+-- ∞≠¡¬
+DROP TABLE IF EXISTS mybatis_develop.courses RESTRICT;
+
+-- ºˆ∞≠
+DROP TABLE IF EXISTS mybatis_develop.course_enrollment RESTRICT;
+
+-- «–ªÁ∞¸∏Æ
 DROP SCHEMA IF EXISTS mybatis_develop;
 
--- ÌïôÏÇ¨Í¥ÄÎ¶¨
+-- «–ªÁ∞¸∏Æ
 CREATE SCHEMA mybatis_develop;
 
--- Ï£ºÏÜå
+-- ¡÷º“
 CREATE TABLE mybatis_develop.addresses (
-	addr_id INTEGER     NOT NULL COMMENT 'Î≤àÌò∏', -- Î≤àÌò∏
-	street  VARCHAR(50) NOT NULL COMMENT 'Í±∞Î¶¨', -- Í±∞Î¶¨
-	city    VARCHAR(50) NOT NULL COMMENT 'ÏãúÎèÑ', -- ÏãúÎèÑ
-	state   VARCHAR(50) NOT NULL COMMENT 'ÏãúÍµ∞Íµ¨', -- ÏãúÍµ∞Íµ¨
-	zip     CHAR(5)     NOT NULL COMMENT 'Ïö∞Ìé∏Î≤àÌò∏', -- Ïö∞Ìé∏Î≤àÌò∏
-	country VARCHAR(20) NOT NULL COMMENT 'Îèô' -- Îèô
+	addr_id INTEGER     NOT NULL COMMENT 'π¯»£', -- π¯»£
+	street  VARCHAR(50) NOT NULL COMMENT '∞≈∏Æ', -- ∞≈∏Æ
+	city    VARCHAR(50) NOT NULL COMMENT 'Ω√µµ', -- Ω√µµ
+	state   VARCHAR(50) NOT NULL COMMENT 'Ω√±∫±∏', -- Ω√±∫±∏
+	zip     CHAR(5)     NOT NULL COMMENT 'øÏ∆Ìπ¯»£', -- øÏ∆Ìπ¯»£
+	country VARCHAR(20) NOT NULL COMMENT 'µø' -- µø
 )
-COMMENT 'Ï£ºÏÜå';
+COMMENT '¡÷º“';
 
--- Ï£ºÏÜå
+-- ¡÷º“
 ALTER TABLE mybatis_develop.addresses
-	ADD CONSTRAINT PK_addresses -- Ï£ºÏÜå Í∏∞Î≥∏ÌÇ§
+	ADD CONSTRAINT PK_addresses -- ¡÷º“ ±‚∫ª≈∞
 		PRIMARY KEY (
-			addr_id -- Î≤àÌò∏
+			addr_id -- π¯»£
 		);
 
 ALTER TABLE mybatis_develop.addresses
-	MODIFY COLUMN addr_id INTEGER NOT NULL AUTO_INCREMENT COMMENT 'Î≤àÌò∏';
+	MODIFY COLUMN addr_id INTEGER NOT NULL AUTO_INCREMENT COMMENT 'π¯»£';
 
--- ÌïôÏÉù
+-- «–ª˝
 CREATE TABLE mybatis_develop.students (
-	stud_id INTEGER     NOT NULL COMMENT 'ÌïôÎ≤à', -- ÌïôÎ≤à
-	name    VARCHAR(50) NOT NULL COMMENT 'ÏÑ±Î™Ö', -- ÏÑ±Î™Ö
-	email   VARCHAR(50) NOT NULL COMMENT 'Ïù¥Î©îÏùº', -- Ïù¥Î©îÏùº
-	phone   VARCHAR(15) NULL     COMMENT 'Ïó∞ÎùΩÏ≤ò', -- Ïó∞ÎùΩÏ≤ò
-	dob     DATE        NULL     COMMENT 'ÏÉùÎÖÑÏõîÏùº', -- ÏÉùÎÖÑÏõîÏùº
-	bio     LONGTEXT    NULL     COMMENT 'ÏûêÍ∏∞ÏÜåÍ∞úÏÑú', -- ÏûêÍ∏∞ÏÜåÍ∞úÏÑú
-	pic     BLOB        NULL     COMMENT 'Ï¶ùÎ™ÖÏÇ¨ÏßÑ', -- Ï¶ùÎ™ÖÏÇ¨ÏßÑ
-	addr_id INTEGER     NULL     COMMENT 'Ï£ºÏÜå' -- Ï£ºÏÜå
+	stud_id INTEGER     NOT NULL COMMENT '«–π¯', -- «–π¯
+	name    VARCHAR(50) NOT NULL COMMENT 'º∫∏Ì', -- º∫∏Ì
+	email   VARCHAR(50) NOT NULL COMMENT '¿Ã∏ﬁ¿œ', -- ¿Ã∏ﬁ¿œ
+	phone   VARCHAR(15) NULL     COMMENT 'ø¨∂Ù√≥', -- ø¨∂Ù√≥
+	dob     DATE        NULL     COMMENT 'ª˝≥‚ø˘¿œ', -- ª˝≥‚ø˘¿œ
+	bio     LONGTEXT    NULL     COMMENT '¿⁄±‚º“∞≥º≠', -- ¿⁄±‚º“∞≥º≠
+	pic     BLOB        NULL     COMMENT '¡ı∏ÌªÁ¡¯', -- ¡ı∏ÌªÁ¡¯
+	addr_id INTEGER     NULL     COMMENT '¡÷º“' -- ¡÷º“
 )
-COMMENT 'ÌïôÏÉù';
+COMMENT '«–ª˝';
 
--- ÌïôÏÉù
+-- «–ª˝
 ALTER TABLE mybatis_develop.students
-	ADD CONSTRAINT PK_students -- ÌïôÏÉù Í∏∞Î≥∏ÌÇ§
+	ADD CONSTRAINT PK_students -- «–ª˝ ±‚∫ª≈∞
 		PRIMARY KEY (
-			stud_id -- ÌïôÎ≤à
+			stud_id -- «–π¯
 		);
 
--- Í∞ïÏÇ¨
+-- ∞≠ªÁ
 CREATE TABLE mybatis_develop.tutors (
-	tutor_id INTEGER     NOT NULL COMMENT 'Í∞ïÏÇ¨Î≤àÌò∏', -- Í∞ïÏÇ¨Î≤àÌò∏
-	name     VARCHAR(50) NOT NULL COMMENT 'ÏÑ±Î™Ö', -- ÏÑ±Î™Ö
-	email    VARCHAR(50) NOT NULL COMMENT 'Ïù¥Î©îÏùº', -- Ïù¥Î©îÏùº
-	phone    VARCHAR(15) NULL     COMMENT 'Ïó∞ÎùΩÏ≤ò', -- Ïó∞ÎùΩÏ≤ò
-	dob      DATE        NULL     COMMENT 'ÏÉùÎÖÑÏõîÏùº', -- ÏÉùÎÖÑÏõîÏùº
-	bio      LONGTEXT    NULL     COMMENT 'ÏûêÍ∏∞ÏÜåÍ∞úÏÑú', -- ÏûêÍ∏∞ÏÜåÍ∞úÏÑú
-	pic      BLOB        NULL     COMMENT 'Ï¶ùÎ™ÖÏÇ¨ÏßÑ', -- Ï¶ùÎ™ÖÏÇ¨ÏßÑ
-	addr_id  INTEGER     NULL     COMMENT 'Ï£ºÏÜå' -- Ï£ºÏÜå
+	tutor_id INTEGER     NOT NULL COMMENT '∞≠ªÁπ¯»£', -- ∞≠ªÁπ¯»£
+	name     VARCHAR(50) NOT NULL COMMENT 'º∫∏Ì', -- º∫∏Ì
+	email    VARCHAR(50) NOT NULL COMMENT '¿Ã∏ﬁ¿œ', -- ¿Ã∏ﬁ¿œ
+	phone    VARCHAR(15) NULL     COMMENT 'ø¨∂Ù√≥', -- ø¨∂Ù√≥
+	dob      DATE        NULL     COMMENT 'ª˝≥‚ø˘¿œ', -- ª˝≥‚ø˘¿œ
+	bio      LONGTEXT    NULL     COMMENT '¿⁄±‚º“∞≥º≠', -- ¿⁄±‚º“∞≥º≠
+	pic      BLOB        NULL     COMMENT '¡ı∏ÌªÁ¡¯', -- ¡ı∏ÌªÁ¡¯
+	addr_id  INTEGER     NULL     COMMENT '¡÷º“' -- ¡÷º“
 )
-COMMENT 'Í∞ïÏÇ¨';
+COMMENT '∞≠ªÁ';
 
--- Í∞ïÏÇ¨
+-- ∞≠ªÁ
 ALTER TABLE mybatis_develop.tutors
-	ADD CONSTRAINT PK_tutors -- Í∞ïÏÇ¨ Í∏∞Î≥∏ÌÇ§
+	ADD CONSTRAINT PK_tutors -- ∞≠ªÁ ±‚∫ª≈∞
 		PRIMARY KEY (
-			tutor_id -- Í∞ïÏÇ¨Î≤àÌò∏
+			tutor_id -- ∞≠ªÁπ¯»£
 		);
 
 ALTER TABLE mybatis_develop.tutors
-	MODIFY COLUMN tutor_id INTEGER NOT NULL AUTO_INCREMENT COMMENT 'Í∞ïÏÇ¨Î≤àÌò∏';
+	MODIFY COLUMN tutor_id INTEGER NOT NULL AUTO_INCREMENT COMMENT '∞≠ªÁπ¯»£';
 
--- Í∞ïÏ¢å
+-- ∞≠¡¬
 CREATE TABLE mybatis_develop.courses (
-	course_id   INTEGER      NOT NULL COMMENT 'Í∞ïÏ¢åÎ≤àÌò∏', -- Í∞ïÏ¢åÎ≤àÌò∏
-	name        VARCHAR(50)  NOT NULL COMMENT 'Í∞ïÏ¢åÎ™Ö', -- Í∞ïÏ¢åÎ™Ö
-	description VARCHAR(512) NULL     COMMENT 'Í∞ïÏ¢åÎÇ¥Ïö©', -- Í∞ïÏ¢åÎÇ¥Ïö©
-	start_date  DATE         NULL     COMMENT 'ÏãúÏûëÏùº', -- ÏãúÏûëÏùº
-	end_date    DATE         NULL     COMMENT 'Ï¢ÖÎ£åÏùº', -- Ï¢ÖÎ£åÏùº
-	tutor_id    INTEGER      NULL     COMMENT 'Îã¥ÎãπÍ∞ïÏÇ¨' -- Îã¥ÎãπÍ∞ïÏÇ¨
+	course_id   INTEGER      NOT NULL COMMENT '∞≠¡¬π¯»£', -- ∞≠¡¬π¯»£
+	name        VARCHAR(50)  NOT NULL COMMENT '∞≠¡¬∏Ì', -- ∞≠¡¬∏Ì
+	description VARCHAR(512) NULL     COMMENT '∞≠¡¬≥ªøÎ', -- ∞≠¡¬≥ªøÎ
+	start_date  DATE         NULL     COMMENT 'Ω√¿€¿œ', -- Ω√¿€¿œ
+	end_date    DATE         NULL     COMMENT '¡æ∑·¿œ', -- ¡æ∑·¿œ
+	tutor_id    INTEGER      NULL     COMMENT '¥„¥Á∞≠ªÁ' -- ¥„¥Á∞≠ªÁ
 )
-COMMENT 'Í∞ïÏ¢å';
+COMMENT '∞≠¡¬';
 
--- Í∞ïÏ¢å
+-- ∞≠¡¬
 ALTER TABLE mybatis_develop.courses
-	ADD CONSTRAINT PK_courses -- Í∞ïÏ¢å Í∏∞Î≥∏ÌÇ§
+	ADD CONSTRAINT PK_courses -- ∞≠¡¬ ±‚∫ª≈∞
 		PRIMARY KEY (
-			course_id -- Í∞ïÏ¢åÎ≤àÌò∏
+			course_id -- ∞≠¡¬π¯»£
 		);
 
--- ÏàòÍ∞ï
+-- ºˆ∞≠
 CREATE TABLE mybatis_develop.course_enrollment (
-	course_id INTEGER NOT NULL COMMENT 'Í∞ïÏ¢å', -- Í∞ïÏ¢å
-	stud_id   INTEGER NOT NULL COMMENT 'ÌïôÏÉù' -- ÌïôÏÉù
+	course_id INTEGER NOT NULL COMMENT '∞≠¡¬', -- ∞≠¡¬
+	stud_id   INTEGER NOT NULL COMMENT '«–ª˝' -- «–ª˝
 )
-COMMENT 'ÏàòÍ∞ï';
+COMMENT 'ºˆ∞≠';
 
--- ÏàòÍ∞ï
+-- ºˆ∞≠
 ALTER TABLE mybatis_develop.course_enrollment
-	ADD CONSTRAINT PK_course_enrollment -- ÏàòÍ∞ï Í∏∞Î≥∏ÌÇ§
+	ADD CONSTRAINT PK_course_enrollment -- ºˆ∞≠ ±‚∫ª≈∞
 		PRIMARY KEY (
-			course_id, -- Í∞ïÏ¢å
-			stud_id    -- ÌïôÏÉù
+			course_id, -- ∞≠¡¬
+			stud_id    -- «–ª˝
 		);
 
--- ÌïôÏÉù
+-- «–ª˝
 ALTER TABLE mybatis_develop.students
-	ADD CONSTRAINT FK_addresses_TO_students -- Ï£ºÏÜå -> ÌïôÏÉù
+	ADD CONSTRAINT FK_addresses_TO_students -- ¡÷º“ -> «–ª˝
 		FOREIGN KEY (
-			addr_id -- Ï£ºÏÜå
+			addr_id -- ¡÷º“
 		)
-		REFERENCES mybatis_develop.addresses ( -- Ï£ºÏÜå
-			addr_id -- Î≤àÌò∏
+		REFERENCES mybatis_develop.addresses ( -- ¡÷º“
+			addr_id -- π¯»£
 		);
 
--- Í∞ïÏÇ¨
+-- ∞≠ªÁ
 ALTER TABLE mybatis_develop.tutors
-	ADD CONSTRAINT FK_addresses_TO_tutors -- Ï£ºÏÜå -> Í∞ïÏÇ¨
+	ADD CONSTRAINT FK_addresses_TO_tutors -- ¡÷º“ -> ∞≠ªÁ
 		FOREIGN KEY (
-			addr_id -- Ï£ºÏÜå
+			addr_id -- ¡÷º“
 		)
-		REFERENCES mybatis_develop.addresses ( -- Ï£ºÏÜå
-			addr_id -- Î≤àÌò∏
+		REFERENCES mybatis_develop.addresses ( -- ¡÷º“
+			addr_id -- π¯»£
 		);
 
--- Í∞ïÏ¢å
+-- ∞≠¡¬
 ALTER TABLE mybatis_develop.courses
-	ADD CONSTRAINT FK_tutors_TO_courses -- Í∞ïÏÇ¨ -> Í∞ïÏ¢å
+	ADD CONSTRAINT FK_tutors_TO_courses -- ∞≠ªÁ -> ∞≠¡¬
 		FOREIGN KEY (
-			tutor_id -- Îã¥ÎãπÍ∞ïÏÇ¨
+			tutor_id -- ¥„¥Á∞≠ªÁ
 		)
-		REFERENCES mybatis_develop.tutors ( -- Í∞ïÏÇ¨
-			tutor_id -- Í∞ïÏÇ¨Î≤àÌò∏
+		REFERENCES mybatis_develop.tutors ( -- ∞≠ªÁ
+			tutor_id -- ∞≠ªÁπ¯»£
 		);
 
--- ÏàòÍ∞ï
+-- ºˆ∞≠
 ALTER TABLE mybatis_develop.course_enrollment
-	ADD CONSTRAINT FK_courses_TO_course_enrollment -- Í∞ïÏ¢å -> ÏàòÍ∞ï
+	ADD CONSTRAINT FK_courses_TO_course_enrollment -- ∞≠¡¬ -> ºˆ∞≠
 		FOREIGN KEY (
-			course_id -- Í∞ïÏ¢å
+			course_id -- ∞≠¡¬
 		)
-		REFERENCES mybatis_develop.courses ( -- Í∞ïÏ¢å
-			course_id -- Í∞ïÏ¢åÎ≤àÌò∏
+		REFERENCES mybatis_develop.courses ( -- ∞≠¡¬
+			course_id -- ∞≠¡¬π¯»£
 		);
 
--- ÏàòÍ∞ï
+-- ºˆ∞≠
 ALTER TABLE mybatis_develop.course_enrollment
-	ADD CONSTRAINT FK_students_TO_course_enrollment -- ÌïôÏÉù -> ÏàòÍ∞ï
+	ADD CONSTRAINT FK_students_TO_course_enrollment -- «–ª˝ -> ºˆ∞≠
 		FOREIGN KEY (
-			stud_id -- ÌïôÏÉù
+			stud_id -- «–ª˝
 		)
-		REFERENCES mybatis_develop.students ( -- ÌïôÏÉù
-			stud_id -- ÌïôÎ≤à
+		REFERENCES mybatis_develop.students ( -- «–ª˝
+			stud_id -- «–π¯
 		);
-		
+
+
 INSERT INTO ADDRESSES (ADDR_ID,STREET,CITY,STATE,ZIP,COUNTRY) VALUES 
  (1,'4891 Pacific Hwy','San Diego','CA','92110','San Diego'),
  (2,'2400 N Jefferson St','Perry','FL','32347','Taylor'),
@@ -182,23 +198,34 @@ select * from tutors;
 select * from addresses;
 select * from courses;
 select * from course_enrollment;
+ 
+ select stud_id, name, email, dob from students where stud_id=1;
 
-insert into students(stud_id, name, email, phone, dob) values(3, 'Í∞ïÎ≥¥ÎØ∏', 'kbm@test.co.kr', '010-2133-1234', '2016-02-13');
-
-delete from students where stud_id = 4;
-
-insert into students(name, email, phone, dob) values('Í∞ïÎ≥¥ÎØ∏', 'kbm@test.co.kr', '010-2133-1234', '2016-02-13');
-
-set foreign_key_checks = 1;
-
-update students set name = 'ÍπÄÌÉúÌù¨', email = 'kth@gmail.com', phone = '010-4584-4175', dob = '2016-12-29' where stud_id = 6;
-delete from students where stud_id = 6;
-
-select stud_id, name, email, phone,
-		a.addr_id, street, city, state, zip, country
-from students s inner join addresses a on s.addr_id = a.addr_id
-where stud_id = 1;
-
-select * from courses where tutor_id = 1 and name like '%java%';
-select * from courses where tutor_id = 1 and start_date >= '2013-03-01' and end_date >= '2013-07-01';
-select * from courses where tutor_id = 1 and name like '%java%' and start_date >= '2013-03-01' and end_date >= '2013-07-01';
+ insert into students(stud_id,name,email,phone,dob)
+ values(5,'∞≠∫∏πÃ','kbm@asd.asd','010-111-1111','2016-12-28');
+ 
+ insert into students(name,email,phone,dob)
+ values('∞≠∫∏πÃ2','kbm2@asd.asd','010-111-1111','2016-12-28');
+ 
+ set foreign_key_checks =1;
+ 
+ update students set name='≥Î√¢±’', email='rcg@asd.asd', phone='010-789-7896',dob='1983-12-10' where stud_id='5';
+ 
+ delete from students where stud_id=7;
+ 
+ select stud_id, name, email,phone,dob from students;
+ 
+ select stud_id, name, email,phone, a.addr_id, a.street, a.city, a.state, a.zip, a.country
+ from students s inner join addresses a on s.addr_id=a.addr_id
+ where stud_id=1;
+ 
+ select t.tutor_id, t.name, email, c.course_id, c.name, c.description, c.start_date,c.end_date 
+ from tutors t left outer join addresses a on t.addr_id = a.addr_id
+ 	left outer join courses c on t.tutor_id = c.tutor_id
+ where t.tutor_id = "1";
+ 
+ select * 
+ from courses where tutor_id = 1
+ and name like '%java%';
+ 
+ select * from courses;
