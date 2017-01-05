@@ -1,6 +1,7 @@
 package kr.or.dgit.bigdata.mybatis_dev;
 
 import java.util.Date;
+import java.util.List;
 
 import org.junit.AfterClass;
 import org.junit.Assert;
@@ -58,7 +59,7 @@ public class StudentServiceTest {
 		Assert.assertSame(1, result);
 	}*/
 	
-	@Test
+	/*@Test
 	public void testUpdateStudent() {
 		Student student = new Student();
 		student.setStudId(1);
@@ -70,6 +71,23 @@ public class StudentServiceTest {
 		int result = studentService.updateStudent(student);
 		System.out.printf("testUpdateStudent %s : result %d%n", student, result);
 		Assert.assertSame(1, result);
-	}
+	}*/
 	
+	/*@Test
+	public void testDeleteStudent() {
+		int result = studentService.deleteStudent(5);
+		System.out.printf("testDeleteStudent : result %d%n", result);
+		Assert.assertSame(1, result);
+	}*/
+	
+	@Test
+	public void testFindAllStudetn() {
+		List<Student> student = studentService.findAllStudent();
+		Assert.assertNotNull(student);
+		System.out.println("testFindAllStudent");
+		for(Student student1 : student){
+			Assert.assertNotNull(student1);
+			System.out.println(student1);
+		}
+	}
 }

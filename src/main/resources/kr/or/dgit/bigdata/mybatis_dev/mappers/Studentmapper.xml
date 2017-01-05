@@ -22,4 +22,13 @@
 		where stud_id=#{studId}
 	</update>
 	
+	<delete id="deleteStudent" parameterType="int">
+		delete from students where stud_id=#{sutdId}
+	</delete>
+	
+	<select id="findAllStudent" resultType="Student">
+		select stud_id as studId, name, email, phone, dob
+		from students;
+	</select>
+	
 </mapper>
