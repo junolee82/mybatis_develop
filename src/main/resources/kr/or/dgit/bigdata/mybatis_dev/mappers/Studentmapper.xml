@@ -31,4 +31,34 @@
 		from students;
 	</select>
 	
+	
+	<resultMap type="Student" id="StudentResult">
+		<id property="studId" column="sutd_id"/>
+		<result property="name" column="name"/>
+		<result property="email" column="email"/>
+		<result property="phone" column="phone"/>
+		<result property="dob" column="dob"/>
+	</resultMap>
+	
+	<select id="findAllStudentsForResultMap" resultMap="StudentResult">
+		select stud_id, name, email, phone, dob
+		from students;
+	</select>
+	
+	<select id="findStudentByIdForResultMap" resultMap="StudentResult">
+		select stud_id, name, email, phone, dob
+		from students
+		where stud_id=#{studId}
+	</select>
+	
+	<select id="findAllStudentsForHashMap" resultType="map">
+		select stud_id, name, email, phone, dob
+		from students;
+	</select>
+	
+	<select id="findStudentByIdForHashMap" resultType="map" parameterType="int">
+		select stud_id, name, email, phone, dob
+		from students
+		where stud_id=#{studId};
+	</select>
 </mapper>
