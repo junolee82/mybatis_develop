@@ -110,7 +110,7 @@ public class StudentServiceTest {
 		System.out.println("testFindStudentByIdForResultMap" + student);		
 	}*/
 	
-	@Test
+	/*@Test
 	public void testFindAllStudentsForHashMap() {
 		List<Map<String, Object>> studentMap = studentService.findAllStudentsForHashMap();
 		Assert.assertNotNull(studentMap);
@@ -130,5 +130,12 @@ public class StudentServiceTest {
 		Map<String, Object> studMap = studentService.findStudentByIdForHashMap(3);
 		Assert.assertNotNull(studMap);
 		System.out.println("findStudentByIdForHashMap");
+	}*/
+	
+	@Test
+	public void testFindStudentByIdForresultMapExtend() {
+		Student student = studentService.findStudentByIdForresultMapExtend(1);
+		Assert.assertNotNull(student);
+		System.out.println("findStudentByIdForresultMapExtend");
 	}
 }

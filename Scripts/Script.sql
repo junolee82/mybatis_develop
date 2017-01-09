@@ -199,33 +199,33 @@ select * from addresses;
 select * from courses;
 select * from course_enrollment;
  
- select stud_id, name, email, dob from students where stud_id=1;
+select stud_id, name, email, phone, dob from students where stud_id=1;
 
- insert into students(stud_id,name,email,phone,dob)
- values(5,'강보미','kbm@asd.asd','010-111-1111','2016-12-28');
+insert into students(stud_id,name,email,phone,dob)
+values(5,'강보미','kbm@asd.asd','010-111-1111','2016-12-28');
  
- insert into students(name,email,phone,dob)
- values('강보미2','kbm2@asd.asd','010-111-1111','2016-12-28');
+insert into students(name,email,phone,dob)
+values('강보미2','kbm2@asd.asd','010-111-1111','2016-12-28');
  
- set foreign_key_checks = 1;
+set foreign_key_checks = 1;
  
- update students set name='노창균', email='rcg@asd.asd', phone='010-789-7896',dob='1983-12-10' where stud_id='5';
+update students set name='노창균', email='rcg@asd.asd', phone='010-789-7896',dob='1983-12-10' where stud_id='5';
  
- delete from students where stud_id = 4;
+delete from students where stud_id = 4;
  
- select stud_id, name, email,phone,dob from students;
+select stud_id, name, email,phone,dob from students;
  
- select stud_id, name, email,phone, a.addr_id, a.street, a.city, a.state, a.zip, a.country
- from students s inner join addresses a on s.addr_id=a.addr_id
- where stud_id=1;
+select stud_id, name, email,phone, a.addr_id, a.street, a.city, a.state, a.zip, a.country
+from students s inner join addresses a on s.addr_id=a.addr_id
+where stud_id=1;
  
- select t.tutor_id, t.name, email, c.course_id, c.name, c.description, c.start_date,c.end_date 
- from tutors t left outer join addresses a on t.addr_id = a.addr_id
- 	left outer join courses c on t.tutor_id = c.tutor_id
- where t.tutor_id = "1";
+select t.tutor_id, t.name, email, c.course_id, c.name, c.description, c.start_date,c.end_date 
+from tutors t left outer join addresses a on t.addr_id = a.addr_id
+	left outer join courses c on t.tutor_id = c.tutor_id
+where t.tutor_id = "1";
  
- select * 
- from courses where tutor_id = 1
- and name like '%java%';
+select * 
+from courses where tutor_id = 1
+and name like '%java%';
  
- select * from courses;
+select * from courses;

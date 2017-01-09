@@ -25,4 +25,6 @@ public interface StudentMapper {
 	List<Map<String, Object>> findAllStudentsForHashMap();
 	
 	Map<String, Object> findStudentByIdForHashMap(int id);
+	
+	Student findStudentByIdForresultMapExtend(int id);
 }
